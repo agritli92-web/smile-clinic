@@ -23,6 +23,12 @@
   .smile-frame { border-radius: 2.5rem 2.5rem 50% 50% / 2.5rem 2.5rem 22% 22%; }
   .zoom img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
   .zoom:hover img { transform: scale(1.06); }
+  @keyframes slide { to { transform: translateX(-50%); } }
+  .strip { animation: slide 50s linear infinite; }
+  .strip:hover { animation-play-state: paused; }
+  .strip img { width: 11rem; height: 11rem; flex: none; object-fit: cover; border-radius: 1.75rem; border: 2px solid rgba(138,219,234,.35); }
+  .strip img:nth-child(even) { transform: translateY(16px); }
+  @media (min-width: 640px) { .strip img { width: 14rem; height: 14rem; } }
   .svc { transition: background-color .25s, padding .25s; }
   .svc:hover { background: #fff; padding-inline: 1.5rem; }
   @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
@@ -77,11 +83,10 @@
   <div class="max-w-6xl mx-auto px-4 pt-14 pb-16 sm:pt-20 sm:pb-24 grid lg:grid-cols-12 gap-10 items-center">
     <div class="lg:col-span-7 hero-rise">
       <h1 class="font-display font-black text-4xl sm:text-6xl leading-[1.25]">
-       ابتسامتك المشرقة تبدأ من هنا في<br> Smile Innovation Clinic
+        ابتسامتك المشرقة تبدأ من هنا في <span dir="ltr" class="inline-block text-aqua" data-text="name"></span>
       </h1>
-      
       <p class="mt-6 text-lg text-white/80 leading-9 max-w-xl">
-        زراعة وتجميل وتقويم وعلاج أسنان في عيادة نظيفة وهادئة بـ<span dir="ltr" class="inline-block mx-1" data-text="name"></span>، مع نتائج حقيقية تراها بعينك أدناه.
+        زراعة وتجميل وتقويم وعلاج أسنان في عيادة نظيفة وهادئة، مع نتائج حقيقية تراها بعينك أدناه.
       </p>
       <div class="mt-9 flex flex-col sm:flex-row gap-3">
         <a data-link="wa" target="_blank" rel="noopener" href="#" class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb957] text-ink font-bold px-7 py-4 rounded-full">
@@ -97,6 +102,10 @@
         <img src="images/case-veneers.jpg" alt="قبل وبعد: تجميل الأسنان بالقشور" class="w-full h-full object-cover" width="960" height="960">
       </div>
     </div>
+  </div>
+  <!-- شريط صور متحرك: نتائج وصور العيادة -->
+  <div class="overflow-hidden pb-16" dir="ltr" aria-hidden="true">
+    <div id="strip" class="strip flex gap-4 w-max"></div>
   </div>
 </section>
 
@@ -296,6 +305,11 @@
       '<p class="mt-1 text-sm leading-7 grow">' + c.d + '</p>' +
       '<a target="_blank" rel="noopener" href="' + waBase + '?text=' + msg + '" class="mt-4 inline-flex self-start items-center bg-porcelain hover:bg-brand hover:text-white text-navy text-sm font-bold px-5 py-2 rounded-full transition-colors">احجز حالتك</a></div></article>';
   }).join('');
+
+  // ===== شريط الصور في الهيرو =====
+  const STRIP = ['case-veneers','clinic-reception','case-implants','case-braces','clinic-treatment-room','case-whitening','case-full-arch','case-filling'];
+  const stripHtml = STRIP.map(n => '<img src="images/' + n + '.jpg" alt="" loading="lazy">').join('');
+  document.getElementById('strip').innerHTML = stripHtml + stripHtml;
 
   // ===== تكبير الصور =====
   const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg');
