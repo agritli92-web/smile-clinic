@@ -1,305 +1,217 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Smile Innovation Clinic | عيادة طب الأسنان</title>
-<meta name="description" content="عيادة أسنان متكاملة: زراعة الأسنان، التجميل والتبييض، التنظيف وإزالة الجير، علاج التسوس. احجز موعدك عبر الواتساب.">
-<meta name="theme-color" content="#0A1A2E">
-<link rel="icon" href="logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: { extend: {
-      colors: { brand: '#1E9BE0', navy: '#1D4A8A', ink: '#0A1A2E', mist: '#F1F8FD', slate2: '#4A4A4C' },
-      fontFamily: { sans: ['"IBM Plex Sans Arabic"', 'Tahoma', 'sans-serif'] }
-    } }
-  }
-</script>
-<style>
-  :root { color-scheme: light; }
-  .hero-bg {
-    background-color: #0A1A2E;
-    background-image:
-      linear-gradient(180deg, rgba(10,26,46,.78) 0%, rgba(10,26,46,.62) 55%, rgba(29,74,138,.55) 100%),
-      url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=70");
-    background-size: cover; background-position: center;
-  }
-  /* إطار مربع مثل شعار العيادة */
-  .frame { border: 2px solid #1D4A8A; }
-  .frame:hover { border-color: #1E9BE0; }
-  input, select, textarea { font-family: inherit; }
-  :focus-visible { outline: 3px solid #1E9BE0; outline-offset: 2px; }
-  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Innovation Clinic | عيادة طب الأسنان</title>
+    <meta name="description" content="علاج التسوس، زراعة الأسنان، تقويم وتبييض الأسنان. احجز موعدك عبر الواتساب.">
+    <meta name="theme-color" content="#0A1A2E">
+    <link rel="icon" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
 </head>
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-<body class="font-sans text-slate2 bg-white antialiased">
-
-<!-- ========================================================= -->
-<!-- ✏️ إعدادات العيادة: عدّل هذه القيم فقط لكل عميل جديد        -->
-<!-- ========================================================= -->
-<script>
-  const CLINIC = {
-    name:     "Smile Innovation Clinic",
-    whatsapp: "213555000000",              // بالصيغة الدولية بدون + أو 00 (الجزائر: 213 ثم الرقم بدون الصفر)
-    phone:    "0540 21 37 31",             // رقم الهاتف كما سيظهر في الموقع
-    address:  "47 Rue el Qods, Chéraga 16014",
-    mapsUrl:  "https://maps.app.goo.gl/DBUgu3WhDKictUs96",                          // ضع رابط خرائط جوجل هنا، وإن تركته فارغاً يُبنى تلقائياً من العنوان
-    hours: [
-      ["السبت – الأربعاء", "09:00 – 17:00"],
-      ["الخميس",           "09:00 – 13:00"],
-      ["الجمعة",           "مغلق"]
-    ]
-  };
-</script>
-
-<!-- ============================ HEADER ============================ -->
-<header class="sticky top-0 z-40 bg-ink/95 backdrop-blur border-b border-white/10">
-  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
-    <a href="#top" class="flex items-center gap-3 min-w-0">
-      <!-- ضع ملف الشعار باسم logo.png بجانب index.html -->
-      <img src="logo.png" alt="شعار العيادة" class="h-11 w-11 object-contain rounded" onerror="this.style.display='none'">
-      <span dir="ltr" class="text-white font-semibold text-base sm:text-lg truncate" data-text="name"></span>
-    </a>
-    <nav class="hidden md:flex items-center gap-6 text-sm text-white/80">
-      <a href="#services" class="hover:text-white">الخدمات</a>
-      <a href="#booking" class="hover:text-white">حجز موعد</a>
-      <a href="#info" class="hover:text-white">أوقات العمل</a>
-      <a href="#reviews" class="hover:text-white">آراء المرضى</a>
-    </nav>
-    <a data-link="tel" href="#" class="shrink-0 bg-brand hover:bg-sky-500 text-white text-sm font-semibold px-4 py-2 rounded-lg">اتصل بنا</a>
-  </div>
-</header>
-
-<main id="top">
-
-<!-- ============================= HERO ============================= -->
-<section class="hero-bg text-white relative">
-  <div class="max-w-6xl mx-auto px-4 pt-16 pb-36 sm:pt-24 sm:pb-44">
-    <div class="max-w-2xl">
-      <h1 class="text-3xl sm:text-5xl font-bold leading-snug">
-        ابتسامتك المشرقة تبدأ من هنا في <span dir="ltr" class="inline-block" data-text="name"></span>
-      </h1>
-      <p class="mt-5 text-base sm:text-lg text-white/85 leading-8">
-        رعاية أسنان متكاملة في بيئة نظيفة وهادئة، بأحدث التجهيزات وفريق يهتم بكل تفاصيل راحتك.
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row gap-3">
-        <a data-link="wa" target="_blank" rel="noopener" href="#"
-           class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb957] text-ink font-bold px-6 py-3.5 rounded-lg">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          طلب موعد عبر الواتساب
-        </a>
-        <a data-link="tel" href="#"
-           class="inline-flex items-center justify-center gap-2 border-2 border-white/80 hover:bg-white hover:text-ink text-white font-semibold px-6 py-3.5 rounded-lg">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.200 2 19.800 19.800 0 0 1-8.600-3.100 19.500 19.500 0 0 1-6-6A19.800 19.800 0 0 1 2.100 4.200 2 2 0 0 1 4.100 2h3a2 2 0 0 1 2 1.700c.1 1 .4 1.900.7 2.800a2 2 0 0 1-.5 2.100L8.100 9.900a16 16 0 0 0 6 6l1.300-1.300a2 2 0 0 1 2.100-.4c.9.300 1.800.6 2.800.7a2 2 0 0 1 1.700 2z"/></svg>
-          اتصال هاتفي مباشر
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- حافة سفلية على شكل ابتسامة -->
-  <svg class="absolute bottom-0 inset-x-0 w-full h-16 sm:h-24 text-white" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-    <path fill="currentColor" d="M0 0C240 110 480 120 720 120S1200 110 1440 0V120H0Z"/>
-  </svg>
-</section>
-
-<!-- =========================== SERVICES =========================== -->
-<section id="services" class="py-16 sm:py-20">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-2xl sm:text-3xl font-bold text-ink">خدماتنا</h2>
-    <p class="mt-2 text-slate2 max-w-xl leading-7">كل ما يحتاجه فمك وأسنانك، من الفحص الأول حتى الابتسامة النهائية.</p>
-
-    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      <article class="frame bg-white p-6 transition-colors">
-        <svg class="w-10 h-10 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10c0 3-1 4-2 5H9C8 7 7 6 7 3zM10 8v4M14 8v4M9 12h6M10 15h4M10.500 18h3M11 21h2"/></svg>
-        <h3 class="mt-4 text-lg font-bold text-ink">زراعة الأسنان</h3>
-        <p class="mt-2 text-sm leading-7">تعويض الأسنان المفقودة بزرعات ثابتة تمنحك مضغاً مريحاً ومظهراً طبيعياً.</p>
-      </article>
-      <article class="frame bg-white p-6 transition-colors">
-        <svg class="w-10 h-10 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.800 4.700L18.500 9.500l-4.700 1.800L12 16l-1.800-4.700L5.500 9.500l4.700-1.800zM19 15l.8 2.200L22 18l-2.200.8L19 21l-.8-2.200L16 18l2.200-.8z"/></svg>
-        <h3 class="mt-4 text-lg font-bold text-ink">تجميل وتبييض الأسنان</h3>
-        <p class="mt-2 text-sm leading-7">تبييض آمن وتصميم ابتسامة متناسقة بنتائج واضحة من الجلسة الأولى.</p>
-      </article>
-      <article class="frame bg-white p-6 transition-colors">
-        <svg class="w-10 h-10 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11zM9.500 14.500a2.500 2.500 0 0 0 2.500 2.500"/></svg>
-        <h3 class="mt-4 text-lg font-bold text-ink">تنظيف وإزالة الجير</h3>
-        <p class="mt-2 text-sm leading-7">تنظيف احترافي يحمي اللثة من الالتهاب ويعيد لأسنانك صفاءها.</p>
-      </article>
-      <article class="frame bg-white p-6 transition-colors">
-        <svg class="w-10 h-10 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.500-3.200 8-8 9-4.800-1-8-4.500-8-9V6zM9 12l2 2 4-4"/></svg>
-        <h3 class="mt-4 text-lg font-bold text-ink">علاج التسوس</h3>
-        <p class="mt-2 text-sm leading-7">كشف مبكر وحشوات دقيقة تحافظ على سنّك الطبيعي وتوقف التسوس.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ BOOKING =========================== -->
-<section id="booking" class="bg-mist py-16 sm:py-20">
-  <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">
-    <div>
-      <h2 class="text-2xl sm:text-3xl font-bold text-ink">احجز موعدك الآن</h2>
-      <p class="mt-3 leading-8 max-w-md">املأ الاستمارة وسيفتح الواتساب برسالة جاهزة إلى العيادة. نؤكد لك الموعد في أقرب وقت.</p>
-      <p class="mt-6 text-sm">أو اتصل مباشرة: <a data-link="tel" href="#" dir="ltr" class="font-bold text-navy underline" data-text="phone"></a></p>
-    </div>
-
-    <div class="frame bg-white p-5 sm:p-7">
-      <div id="bookingForm" class="space-y-4">
-        <div>
-          <label for="fName" class="block text-sm font-semibold text-ink mb-1">الاسم واللقب</label>
-          <input id="fName" type="text" autocomplete="name" placeholder="مثال: محمد بن علي"
-                 class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand focus:ring-2 focus:ring-brand/30 outline-none">
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#top" class="flex items-center gap-3">
+                <img src="logo-full.png" alt="شعار العيادة" class="h-12 w-auto object-contain">
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-600">
+                <a href="#services" class="hover:text-sky-600 transition">الخدمات</a>
+                <a href="#gallery" class="hover:text-sky-600 transition">معرض العيادة والحالات</a>
+                <a href="#reviews" class="hover:text-sky-600 transition">آراء المرضى</a>
+                <a href="#info" class="hover:text-sky-600 transition">أوقات العمل</a>
+            </nav>
+            <a href="https://wa.me/213XXXXXXXXX?text=مرحباً، أهتم بحجز موعد في عيادة Smile Innovation" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-bold shadow-lg shadow-emerald-600/20 transition flex items-center gap-2">
+                <span>حجز واتساب</span>
+            </a>
         </div>
-        <div>
-          <label for="fPhone" class="block text-sm font-semibold text-ink mb-1">رقم الهاتف</label>
-          <input id="fPhone" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" placeholder="05 55 00 00 00"
-                 class="w-full border border-slate-300 rounded-lg px-4 py-3 text-right focus:border-brand focus:ring-2 focus:ring-brand/30 outline-none">
+    </header>
+
+    <main id="top" class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-br from-slate-900 via-sky-950 to-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="space-y-6 text-center lg:text-right">
+                    <span class="inline-block bg-sky-500/20 text-sky-400 border border-sky-500/30 px-4 py-1.5 rounded-full text-sm font-semibold">عيادة Smile Innovation لطب وتجميل الأسنان</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        ابتسامتك المشرقة تبدأ من هنا في <span class="text-sky-400">Smile Innovation</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 max-w-xl mx-auto lg:mx-0">
+                        رعاية أسنان متكاملة في بيئة نظيفة وهادئة، بأحدث التجهيزات الطبية وفريق يهتم بكل تفاصيل راحتك وصحة فمك.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
+                        <a href="https://wa.me/213XXXXXXXXX?text=مرحباً، أريد طلب موعد في العيادة" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-emerald-600/30 transition">
+                            طلب موعد عبر الواتساب
+                        </a>
+                        <a href="tel:+213XXXXXXXXX" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-sm transition">
+                            اتصال هاتفي مباشر
+                        </a>
+                    </div>
+                </div>
+                <div class="relative flex justify-center">
+                    <div class="w-full max-w-md bg-white/5 border border-white/10 p-4 rounded-3xl backdrop-blur-xl shadow-2xl">
+                        <img src="clinic-1.jpg" alt="استقبال العيادة" class="rounded-2xl w-full h-80 object-cover shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">خدماتنا الطبية</h2>
+                <p class="text-slate-600 text-lg">كل ما يحتاجه فمك وأسنانك، من الفحص الدقيق حتى الابتسامة النهائية المثالية.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition group">
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-sky-600 transition">زراعة الأسنان</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">تعويض الأسنان المفقودة بزرعات ثابتة متينة تمنحك مضغاً مريحاً ومظهراً طبيعياً تماماً.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition group">
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-sky-600 transition">تجميل وتبييض الأسنان</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">تبييض آمن وتصميم ابتسامة متناسقة بنتائج مبهرة وواضحة من الجلسة الأولى.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition group">
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-sky-600 transition">تنظيف وإزالة الجير</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">تنظيف احترافي بالموجات فوق الصوتية يحمي اللثة من الالتهابات ويعيد للأسنان صفاءها.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition group">
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-sky-600 transition">علاج التسوس والتقويم</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">كشف مبكر، حشوات تجميلية دقيقة، وتقويم أسنان لترتيب الابتسامة بمعايير عالمية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section (Clinic & Cases) -->
+        <section id="gallery" class="py-24 bg-slate-100 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto space-y-16">
+                <!-- Clinic Photos -->
+                <div>
+                    <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                        <h2 class="text-3xl font-extrabold text-slate-900">جولة في عيادتنا</h2>
+                        <p class="text-slate-600">بيئة حديثة، معقمة، ومصممة خصيصاً لراحة المرضى وتوفير أعلى معايير الأمان.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="overflow-hidden rounded-2xl shadow-lg bg-white p-2">
+                            <img src="clinic-1.jpg" alt="الاستقبال" class="w-full h-72 object-cover rounded-xl hover:scale-105 transition duration-500">
+                            <p class="text-center font-bold text-slate-700 py-3">صالون الاستقبال المريح</p>
+                        </div>
+                        <div class="overflow-hidden rounded-2xl shadow-lg bg-white p-2">
+                            <img src="clinic-2.jpg" alt="غرفة العلاج" class="w-full h-72 object-cover rounded-xl hover:scale-105 transition duration-500">
+                            <p class="text-center font-bold text-slate-700 py-3">غرفة العلاج وكرسي الأسنان المجهز</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Before & After Cases -->
+                <div>
+                    <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                        <h2 class="text-3xl font-extrabold text-slate-900">نتائج حالات مرضانا (قبل وبعد)</h2>
+                        <p class="text-slate-600">شاهد تحول الابتسامات والنتائج الحقيقية لإنجازات العيادة.</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                            <img src="case-1.jpg" alt="حالة 1" class="w-full h-64 object-cover">
+                            <div class="p-4 text-center font-bold text-slate-800">حالة تجميل وتعديل الأسنان</div>
+                        </div>
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                            <img src="case-2.jpg" alt="حالة 2" class="w-full h-64 object-cover">
+                            <div class="p-4 text-center font-bold text-slate-800">حالة تركيبات وزراعة</div>
+                        </div>
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                            <img src="case-3.jpg" alt="حالة 3" class="w-full h-64 object-cover">
+                            <div class="p-4 text-center font-bold text-slate-800">حالة معالجة وتبييض متقدم</div>
+                        </div>
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                            <img src="case-4.jpg" alt="حالة 4" class="w-full h-64 object-cover">
+                            <div class="p-4 text-center font-bold text-slate-800">حالة تقويم الأسنان</div>
+                        </div>
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                            <img src="case-5.jpg" alt="حالة 5" class="w-full h-64 object-cover">
+                            <div class="p-4 text-center font-bold text-slate-800">حالة تجميلية متكاملة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">ماذا يقول مرضانا</h2>
+                <p class="text-slate-600 text-lg">آراء حقيقية من مرضى زارونا واختبروا جودة الخدمات بأنفسهم.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="text-amber-400 text-lg mb-4">★★★★★</div>
+                        <p class="text-slate-600 italic mb-6">"استقبال محترم وعيادة نظيفة جداً بأعلى المعايير. الطبيب شرح لي كل خطوة وما شعرت بأي ألم أثناء العلاج."</p>
+                    </div>
+                    <div class="font-bold text-slate-900">- سامية ب.</div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="text-amber-400 text-lg mb-4">★★★★★</div>
+                        <p class="text-slate-600 italic mb-6">"قمت بتبييض أسنان عندهم والنتيجة فاقت توقعاتي تماماً. الحجز عبر الواتساب كان سهلاً وسريعاً جداً."</p>
+                    </div>
+                    <div class="font-bold text-slate-900">- يوسف م.</div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="text-amber-400 text-lg mb-4">★★★★★</div>
+                        <p class="text-slate-600 italic mb-6">"جلبت أولادي لعلاج التسوس وكانوا مرتاحين بفضل لطف الطاقم. أنصح بها لكل عائلة تبحث عن الاحترافية."</p>
+                    </div>
+                    <div class="font-bold text-slate-900">- كريمة ع.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info & Working Hours Section -->
+        <section id="info" class="bg-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-extrabold">أوقات العمل والموقع</h2>
+                    <p class="text-slate-300">نحن في خدم طوال الأسبوع لاستقبال استفساراتكم وحالات الطوارئ المعتادة.</p>
+                    <div class="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-4">
+                        <div class="flex justify-between border-b border-white/10 pb-3">
+                            <span class="text-slate-400">السبت - الخميس:</span>
+                            <span class="font-bold">09:00 صباحاً - 07:00 مساءً</span>
+                        </div>
+                        <div class="flex justify-between pb-1">
+                            <span class="text-slate-400">الجمعة:</span>
+                            <span class="font-bold text-sky-400">مغلق (حالات الطوارئ بالتنسيق)</span>
+                        </div>
+                    </div>
+                    <a href="https://maps.app.goo.gl/DBUgu3WhDKictUs96" target="_blank" rel="noopener" class="inline-block bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-xl font-bold transition shadow-lg shadow-sky-600/30">
+                        افتح الموقع في خرائط جوجل
+                    </a>
+                </div>
+                <div class="space-y-6 bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-sm">
+                    <h3 class="text-2xl font-bold">جاهز لاستعادة ابتسامتك؟</h3>
+                    <p class="text-slate-300">تواصل معنا الآن عبر الواتساب لتأكيد موعدك أو الاستفسار عن تفاصيل العلاج والأسعار.</p>
+                    <a href="https://wa.me/213XXXXXXXXX?text=مرحباً، أريد الاستفسار عن خدمات العيادة" target="_blank" rel="noopener" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-xl shadow-emerald-600/30 transition text-lg">
+                        تواصل عبر الواتساب مباشرة
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-8 px-4 text-center text-sm border-t border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>Smile Innovation Clinic - جميع الحقوق محفوظة © 2026</p>
+            <p class="text-slate-500">تم التطوير باحترافية لخدمة العيادة</p>
         </div>
-        <div>
-          <label for="fService" class="block text-sm font-semibold text-ink mb-1">الخدمة المطلوبة</label>
-          <select id="fService" class="w-full border border-slate-300 rounded-lg px-4 py-3 bg-white focus:border-brand focus:ring-2 focus:ring-brand/30 outline-none">
-            <option value="">اختر الخدمة…</option>
-            <option>زراعة الأسنان</option>
-            <option>تجميل وتبييض الأسنان</option>
-            <option>تنظيف وإزالة الجير</option>
-            <option>علاج التسوس</option>
-            <option>استشارة / خدمة أخرى</option>
-          </select>
-        </div>
-        <div>
-          <label for="fNotes" class="block text-sm font-semibold text-ink mb-1">ملاحظات (اختياري)</label>
-          <textarea id="fNotes" rows="3" placeholder="الوقت المناسب لك، أو وصف قصير لحالتك"
-                    class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand focus:ring-2 focus:ring-brand/30 outline-none resize-none"></textarea>
-        </div>
-        <p id="formError" class="text-sm text-red-600 min-h-[1.25rem]" role="alert"></p>
-        <button id="sendBtn" type="button" class="w-full bg-navy hover:bg-brand text-white font-bold py-3.5 rounded-lg transition-colors">
-          أرسل الطلب عبر الواتساب
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
-<!-- ======================== HOURS & LOCATION ====================== -->
-<section id="info" class="py-16 sm:py-20">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-2xl sm:text-3xl font-bold text-ink">أوقات العمل والموقع</h2>
-    <div class="mt-8 grid md:grid-cols-2 gap-5">
-      <div class="frame p-6">
-        <h3 class="font-bold text-ink mb-4">أوقات العمل</h3>
-        <table class="w-full text-sm">
-          <tbody id="hoursBody" class="divide-y divide-slate-200"></tbody>
-        </table>
-      </div>
-      <div class="frame p-6 flex flex-col">
-        <h3 class="font-bold text-ink mb-3">العنوان</h3>
-        <p class="leading-8" data-text="address"></p>
-        <p class="mt-2 text-sm">الهاتف: <a data-link="tel" href="#" dir="ltr" class="font-semibold text-navy" data-text="phone"></a></p>
-        <a data-link="map" target="_blank" rel="noopener" href="https://maps.app.goo.gl/DBUgu3WhDKictUs96"
-           class="mt-6 inline-flex items-center justify-center gap-2 bg-brand hover:bg-navy text-white font-semibold px-5 py-3 rounded-lg self-start transition-colors">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.200 7-12a7 7 0 0 0-14 0c0 5.800 7 12 7 12z"/><circle cx="12" cy="9" r="2.500"/></svg>
-          افتح في خرائط جوجل
-        </a>
-      </div>
-    </div>
-    <div class="frame mt-5 overflow-hidden">
-      <iframe title="موقع العيادة على الخريطة" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3196.006209246897!2d2.958916!3d36.770418500000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb1fc098716e1%3A0x4482ec0dceb01d14!2sCabinet%20Dentaire%20Dr%20Ghanem.Y%20%7C%20Smile%20Innovation%20Clinic!5e0!3m2!1sar!2sdz!4v1793792734866!5m2!1sar!2sdz" class="w-full h-72 sm:h-96 block" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- =========================== REVIEWS ============================ -->
-<!-- آراء حقيقية من مرضى العيادة -->
-<section id="reviews" class="bg-mist py-16 sm:py-20">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-2xl sm:text-3xl font-bold text-ink">ماذا يقول مرضانا</h2>
-    <div class="mt-8 grid gap-5 md:grid-cols-3">
-      <figure class="bg-white p-6 border-s-4 border-brand">
-        <div class="text-brand text-lg" aria-label="5 من 5 نجوم">★★★★★</div>
-        <blockquote lang="fr" dir="ltr" class="mt-3 leading-8 text-sm text-left">Excellente dentiste, très professionnelle et à l’écoute, avec une équipe bienveillante. Je recommande vivement !!</blockquote>
-        <figcaption class="mt-4 font-semibold text-ink text-sm" dir="ltr">Yasmina</figcaption>
-      </figure>
-      <figure class="bg-white p-6 border-s-4 border-brand">
-        <div class="text-brand text-lg" aria-label="5 من 5 نجوم">★★★★★</div>
-        <blockquote lang="ar" dir="rtl" class="mt-3 leading-8 text-sm">طبيبة ما شاء الله إنسانة طيبة وعملها متقن، اللهم بارك. بارك الله لها في رزقها وعملها وفتح الله عليها أبواب الخير.</blockquote>
-        <figcaption class="mt-4 font-semibold text-ink text-sm" dir="ltr">Marwa.ati</figcaption>
-      </figure>
-      <figure class="bg-white p-6 border-s-4 border-brand">
-        <div class="text-brand text-lg" aria-label="5 من 5 نجوم">★★★★★</div>
-        <blockquote lang="fr" dir="ltr" class="mt-3 leading-8 text-sm text-left">Très bonne expérience dans ce cabinet dentaire ! Une équipe professionnelle, douce et rassurante. J’ai également dû enlever une dent de sagesse et tout s’est parfaitement bien passé : aucune douleur, une extraction réalisée en seulement 2 minutes chrono ! Je suis vraiment satisfaite de la prise en charge et je recommande vivement ce cabinet.</blockquote>
-        <figcaption class="mt-4 font-semibold text-ink text-sm" dir="ltr">H. Mira</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ============================ FOOTER ============================ -->
-<footer class="bg-ink text-white/80 py-8">
-  <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
-    <span dir="ltr" class="font-semibold text-white" data-text="name"></span>
-    <span>© <span id="year"></span> جميع الحقوق محفوظة</span>
-  </div>
-</footer>
-
-<!-- زر واتساب عائم -->
-<a data-link="wa" target="_blank" rel="noopener" href="#" aria-label="تواصل عبر الواتساب"
-   class="fixed bottom-4 left-4 z-50 w-14 h-14 rounded-full bg-[#25D366] text-ink shadow-lg flex items-center justify-center hover:scale-105 transition-transform">
-  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-</a>
-
-<script>
-  const digits = s => s.replace(/\D/g, '');
-  const waBase = 'https://wa.me/' + digits(CLINIC.whatsapp);
-  const mapsHref = CLINIC.mapsUrl || 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(CLINIC.address);
-
-  // تعبئة النصوص والروابط من الإعدادات
-  document.querySelectorAll('[data-text]').forEach(el => el.textContent = CLINIC[el.dataset.text]);
-  document.querySelectorAll('[data-link]').forEach(el => {
-    const t = el.dataset.link;
-    if (t === 'wa')  el.href = waBase + '?text=' + encodeURIComponent('مرحباً، أود حجز موعد في ' + CLINIC.name);
-    if (t === 'tel') el.href = 'tel:' + digits(CLINIC.phone);
-    if (t === 'map') el.href = mapsHref;
-  });
-  document.title = CLINIC.name + ' | عيادة طب الأسنان';
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // جدول أوقات العمل
-  document.getElementById('hoursBody').innerHTML = CLINIC.hours.map(([d, h]) =>
-    '<tr><td class="py-3 font-medium text-ink">' + d + '</td><td class="py-3 text-left' +
-    (h === 'مغلق' ? ' text-red-600' : '') + '">' + h + '</td></tr>').join('');
-
-  // إرسال الحجز عبر الواتساب
-  document.getElementById('sendBtn').addEventListener('click', () => {
-    const name = document.getElementById('fName').value.trim();
-    const phone = document.getElementById('fPhone').value.trim();
-    const service = document.getElementById('fService').value;
-    const notes = document.getElementById('fNotes').value.trim();
-    const err = document.getElementById('formError');
-
-    if (name.length < 3) { err.textContent = 'يرجى كتابة الاسم واللقب.'; return; }
-    if (digits(phone).length < 9) { err.textContent = 'يرجى إدخال رقم هاتف صحيح.'; return; }
-    if (!service) { err.textContent = 'يرجى اختيار الخدمة المطلوبة.'; return; }
-    err.textContent = '';
-
-    const msg = [
-      'مرحباً ' + CLINIC.name + '، أود حجز موعد:',
-      '',
-      '👤 الاسم واللقب: ' + name,
-      '📞 الهاتف: ' + phone,
-      '🦷 الخدمة: ' + service,
-      '📝 ملاحظات: ' + (notes || 'لا يوجد'),
-      '',
-      'شكراً لكم.'
-    ].join('\n');
-
-    window.open(waBase + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
-  });
-</script>
 </body>
 </html>
