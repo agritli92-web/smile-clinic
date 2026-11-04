@@ -29,6 +29,8 @@
   .strip img { width: 11rem; height: 11rem; flex: none; object-fit: cover; border-radius: 1.75rem; border: 2px solid rgba(138,219,234,.35); }
   .strip img:nth-child(even) { transform: translateY(16px); }
   @media (min-width: 640px) { .strip img { width: 14rem; height: 14rem; } }
+  @keyframes bob { 50% { transform: translateY(-10px); } }
+  .float { animation: bob 5s ease-in-out infinite; }
   .svc { transition: background-color .25s, padding .25s; }
   .svc:hover { background: #fff; padding-inline: 1.5rem; }
   @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
@@ -80,8 +82,30 @@
 
 <!-- HERO -->
 <section class="bg-ink text-white overflow-hidden">
-  <div class="max-w-6xl mx-auto px-4 pt-14 pb-16 sm:pt-20 sm:pb-24 grid lg:grid-cols-12 gap-10 items-center">
-    <div class="lg:col-span-7 hero-rise">
+  <div class="max-w-6xl mx-auto px-4 pt-14 pb-16 sm:pt-20 sm:pb-24 lg:py-24 relative">
+    <svg class="absolute left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 top-1/2 -translate-y-1/2 w-[28rem] sm:w-[34rem] lg:w-[40rem] opacity-30 lg:opacity-100 pointer-events-none" viewBox="0 0 600 520" fill="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="sg" x1="90" y1="300" x2="510" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#1E9BE0"/><stop offset="1" stop-color="#8ADBEA"/></linearGradient>
+        <radialGradient id="glow" cx="300" cy="260" r="260" gradientUnits="userSpaceOnUse"><stop stop-color="#1E9BE0" stop-opacity=".35"/><stop offset="1" stop-color="#1E9BE0" stop-opacity="0"/></radialGradient>
+      </defs>
+      <circle cx="300" cy="260" r="260" fill="url(#glow)"/>
+      <circle cx="300" cy="260" r="230" stroke="#8ADBEA" stroke-opacity=".18"/>
+      <circle cx="300" cy="260" r="170" stroke="#8ADBEA" stroke-opacity=".18" stroke-dasharray="3 9" stroke-linecap="round"/>
+      <circle cx="300" cy="260" r="110" stroke="#8ADBEA" stroke-opacity=".18"/>
+      <!-- ابتسامة على طراز الشعار -->
+      <path d="M95 300Q300 480 505 300" stroke="url(#sg)" stroke-width="26" stroke-linecap="round"/>
+      <circle cx="82" cy="288" r="9" fill="#1E9BE0"/><circle cx="518" cy="288" r="9" fill="#8ADBEA"/>
+      <!-- سنّ لامع -->
+      <g class="float">
+        <path d="M300 135C270 105 215 115 215 170 215 215 240 235 245 290 248 320 268 322 274 292 279 268 286 252 300 252 314 252 321 268 326 292 332 322 352 320 355 290 360 235 385 215 385 170 385 115 330 105 300 135Z" fill="#fff" stroke="#8ADBEA" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M245 160C250 138 272 130 285 140" stroke="#8ADBEA" stroke-width="7" stroke-linecap="round" opacity=".7"/>
+      </g>
+      <!-- لمعات -->
+      <g fill="#8ADBEA"><path class="float" transform="translate(430 120)" d="M0-18C2-6 6-2 18 0 6 2 2 6 0 18-2 6-6 2-18 0-6-2-2-6 0-18Z"/><path class="float" style="animation-delay:-2s" transform="translate(165 105) scale(.7)" d="M0-18C2-6 6-2 18 0 6 2 2 6 0 18-2 6-6 2-18 0-6-2-2-6 0-18Z"/><path class="float" style="animation-delay:-4s" transform="translate(470 360) scale(.55)" d="M0-18C2-6 6-2 18 0 6 2 2 6 0 18-2 6-6 2-18 0-6-2-2-6 0-18Z"/></g>
+      <g fill="#1E9BE0" opacity=".7"><circle cx="120" cy="170" r="7"/><circle cx="500" cy="200" r="5"/><circle cx="150" cy="400" r="5"/></g>
+      <g fill="#8ADBEA" opacity=".45"><circle cx="60" cy="90" r="2.5"/><circle cx="80" cy="90" r="2.5"/><circle cx="100" cy="90" r="2.5"/><circle cx="60" cy="110" r="2.5"/><circle cx="80" cy="110" r="2.5"/><circle cx="100" cy="110" r="2.5"/></g>
+    </svg>
+    <div class="relative z-10 max-w-2xl hero-rise">
       <h1 class="font-display font-black text-4xl sm:text-6xl leading-[1.25]">
         ابتسامتك المشرقة تبدأ من هنا في <span dir="ltr" class="inline-block text-aqua" data-text="name"></span>
       </h1>
@@ -94,12 +118,6 @@
           طلب موعد عبر الواتساب
         </a>
         <a href="#results" class="inline-flex items-center justify-center border-2 border-white/60 hover:bg-white hover:text-ink font-bold px-7 py-4 rounded-full transition-colors">شاهد النتائج</a>
-      </div>
-    </div>
-    <!-- صورة الهيرو داخل إطار على شكل ابتسامة -->
-    <div class="lg:col-span-5 hero-rise" style="animation-delay:.15s">
-      <div class="smile-frame overflow-hidden border-4 border-aqua/70 aspect-[4/5] max-w-sm mx-auto zoom">
-        <img src="images/case-veneers.jpg" alt="قبل وبعد: تجميل الأسنان بالقشور" class="w-full h-full object-cover" width="960" height="960">
       </div>
     </div>
   </div>
