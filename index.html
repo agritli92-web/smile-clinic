@@ -276,16 +276,17 @@
   const CASES = [
     { img: 'images/case-implants.jpg',  t: 'زراعة الأسنان',          d: 'تعويض الأسنان المفقودة بزرعات وتركيبات ثابتة.', l: 'v' },
     { img: 'images/case-veneers.jpg',   t: 'تجميل الأسنان',          d: 'قشور وتيجان تعيد للابتسامة لونها وشكلها.',     l: 'v' },
-    { img: 'images/case-braces.jpg',    t: 'تقويم الأسنان',          d: 'من التقويم المعدني إلى أسنان مصطفة.',           l: 'v' },
+    { img: 'images/case-braces.jpg',    t: 'تقويم الأسنان',          d: 'من أسنان غير منتظمة إلى أسنان مصطفة بالتقويم.', l: 'v', r: 1 },
     { img: 'images/case-whitening.jpg', t: 'تبييض الأسنان',          d: 'توحيد اللون وتبييض واضح من الجلسة الأولى.',    l: 'v' },
     { img: 'images/case-filling.jpg',   t: 'علاج التسوس والحشوات',   d: 'إزالة التسوس وحشوة تعيد شكل الضرس الطبيعي.',   l: 'h' },
     { img: 'images/case-full-arch.jpg', t: 'تركيبات ثابتة كاملة',    d: 'ابتسامة كاملة بتركيبات ثابتة بدل غياب الأسنان.', l: 'v' }
   ];
   const badge = 'absolute rounded-full bg-ink/85 text-white text-xs font-bold px-3 py-1 pointer-events-none';
   document.getElementById('cases').innerHTML = CASES.map(c => {
+    const A = c.r ? 'بعد' : 'قبل', B = c.r ? 'قبل' : 'بعد'; // r: الصورة معكوسة (بعد فوق، قبل تحت)
     const b = c.l === 'v'
-      ? '<span class="' + badge + ' right-3 top-3">قبل</span><span class="' + badge + ' right-3" style="top:52%">بعد</span>'
-      : '<span class="' + badge + ' left-3 top-3">قبل</span><span class="' + badge + ' right-3 top-3">بعد</span>';
+      ? '<span class="' + badge + ' right-3 top-3">' + A + '</span><span class="' + badge + ' right-3" style="top:52%">' + B + '</span>'
+      : '<span class="' + badge + ' left-3 top-3">' + A + '</span><span class="' + badge + ' right-3 top-3">' + B + '</span>';
     const msg = encodeURIComponent('مرحباً، أريد حجز موعد لـ: ' + c.t + ' في ' + CLINIC.name);
     return '<article class="bg-white rounded-[2rem] overflow-hidden flex flex-col">' +
       '<div class="relative zoom overflow-hidden cursor-zoom-in" data-zoom>' +
