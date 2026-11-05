@@ -31,6 +31,10 @@
   @media (min-width: 640px) { .strip img { width: 14rem; height: 14rem; } }
   @keyframes bob { 50% { transform: translateY(-10px); } }
   .float { animation: bob 5s ease-in-out infinite; }
+  .faq summary { list-style: none; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; font-size: 1.5rem; line-height: 1; color: #1E9BE0; flex: none; }
+  .faq[open] summary::after { content: '−'; }
   .svc { transition: background-color .25s, padding .25s; }
   .svc:hover { background: #fff; padding-inline: 1.5rem; }
   @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
@@ -129,11 +133,16 @@
       <p class="mt-3 leading-8">من الفحص الأول إلى الابتسامة النهائية، كل ما تحتاجه في مكان واحد.</p>
     </div>
     <ul class="lg:col-span-8 divide-y divide-ink/10 border-y border-ink/10">
-      <li class="svc py-5 rounded-xl"><h3 class="font-display font-bold text-xl text-ink">زراعة الأسنان</h3><p class="mt-1 text-sm leading-7">زرعات ثابتة تمنحك مضغاً مريحاً ومظهراً طبيعياً.</p></li>
-      <li class="svc py-5 rounded-xl"><h3 class="font-display font-bold text-xl text-ink">تجميل وتبييض الأسنان</h3><p class="mt-1 text-sm leading-7">تبييض آمن وتصميم ابتسامة متناسقة بنتائج واضحة.</p></li>
-      <li class="svc py-5 rounded-xl"><h3 class="font-display font-bold text-xl text-ink">تقويم الأسنان</h3><p class="mt-1 text-sm leading-7">تصحيح اصطفاف الأسنان وإطباقها بخطة مناسبة لحالتك.</p></li>
-      <li class="svc py-5 rounded-xl"><h3 class="font-display font-bold text-xl text-ink">علاج التسوس والحشوات</h3><p class="mt-1 text-sm leading-7">كشف مبكر وحشوات دقيقة تحافظ على سنّك الطبيعي.</p></li>
-      <li class="svc py-5 rounded-xl"><h3 class="font-display font-bold text-xl text-ink">تنظيف وإزالة الجير</h3><p class="mt-1 text-sm leading-7">تنظيف احترافي يحمي اللثة ويعيد لأسنانك صفاءها.</p></li>
+      <li class="svc py-5 rounded-xl"><h3 class="font-display font-bold text-xl text-ink">زراعة الأسنان</h3><p class="mt-1 text-sm leading-7">زرعات ثابتة تمنحك مضغاً مريحاً ومظهراً طبيعياً.</p>
+        <p lang="fr" dir="ltr" class="mt-2 text-sm leading-7 text-right text-navy"><strong class="font-display">Implants dentaires</strong> — Remplacement des dents manquantes par des implants fixes, au rendu naturel.</p></li>
+      <li class="svc py-5 rounded-xl"><h3 class="font-display font-bold text-xl text-ink">تجميل وتبييض الأسنان</h3><p class="mt-1 text-sm leading-7">تبييض آمن وتصميم ابتسامة متناسقة بنتائج واضحة.</p>
+        <p lang="fr" dir="ltr" class="mt-2 text-sm leading-7 text-right text-navy"><strong class="font-display">Esthétique et blanchiment</strong> — Blanchiment en toute sécurité et création d’un sourire harmonieux.</p></li>
+      <li class="svc py-5 rounded-xl"><h3 class="font-display font-bold text-xl text-ink">تقويم الأسنان</h3><p class="mt-1 text-sm leading-7">تصحيح اصطفاف الأسنان وإطباقها بخطة مناسبة لحالتك.</p>
+        <p lang="fr" dir="ltr" class="mt-2 text-sm leading-7 text-right text-navy"><strong class="font-display">Orthodontie</strong> — Alignement des dents et de l’occlusion selon un plan adapté à votre cas.</p></li>
+      <li class="svc py-5 rounded-xl"><h3 class="font-display font-bold text-xl text-ink">علاج التسوس والحشوات</h3><p class="mt-1 text-sm leading-7">كشف مبكر وحشوات دقيقة تحافظ على سنّك الطبيعي.</p>
+        <p lang="fr" dir="ltr" class="mt-2 text-sm leading-7 text-right text-navy"><strong class="font-display">Soins des caries et obturations</strong> — Dépistage précoce et obturations précises qui préservent votre dent naturelle.</p></li>
+      <li class="svc py-5 rounded-xl"><h3 class="font-display font-bold text-xl text-ink">تنظيف وإزالة الجير</h3><p class="mt-1 text-sm leading-7">تنظيف احترافي يحمي اللثة ويعيد لأسنانك صفاءها.</p>
+        <p lang="fr" dir="ltr" class="mt-2 text-sm leading-7 text-right text-navy"><strong class="font-display">Détartrage et nettoyage</strong> — Nettoyage professionnel pour protéger les gencives et retrouver des dents nettes.</p></li>
     </ul>
   </div>
 </section>
@@ -255,6 +264,25 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-12 gap-10">
+    <div class="lg:col-span-4">
+      <h2 class="font-display font-black text-3xl text-ink">أسئلة شائعة</h2>
+      <p class="mt-3 leading-8">أجوبة سريعة لأكثر ما يسأل عنه المرضى. وإن لم تجد سؤالك، راسلنا على الواتساب.</p>
+    </div>
+    <div class="lg:col-span-8 space-y-3">
+      <details class="faq bg-porcelain rounded-2xl px-5 py-4"><summary class="font-display font-bold text-ink cursor-pointer">كيف أحجز موعداً؟</summary><p class="mt-3 leading-8 text-sm">يمكنك الحجز عبر الواتساب أو بملء استمارة الحجز في الموقع أو بالاتصال مباشرة بالعيادة، ونؤكد لك الموعد في أقرب وقت.</p></details>
+      <details class="faq bg-porcelain rounded-2xl px-5 py-4"><summary class="font-display font-bold text-ink cursor-pointer">هل تبييض الأسنان آمن؟</summary><p class="mt-3 leading-8 text-sm">يتم التبييض بعد فحص أولي للأسنان واللثة، وتحدد الطبيبة إن كانت حالتك تناسبه وبأي طريقة.</p></details>
+      <details class="faq bg-porcelain rounded-2xl px-5 py-4"><summary class="font-display font-bold text-ink cursor-pointer">كم تستغرق مدة تقويم الأسنان؟</summary><p class="mt-3 leading-8 text-sm">تختلف المدة من حالة لأخرى، وتُحدَّد بعد الفحص ودراسة وضع الأسنان والإطباق.</p></details>
+      <details class="faq bg-porcelain rounded-2xl px-5 py-4"><summary class="font-display font-bold text-ink cursor-pointer">هل زراعة الأسنان مؤلمة؟</summary><p class="mt-3 leading-8 text-sm">تتم الزراعة تحت تخدير موضعي، وقد تشعر بانزعاج بسيط بعدها يخف عادةً بالتعليمات التي تعطيها لك الطبيبة.</p></details>
+      <details class="faq bg-porcelain rounded-2xl px-5 py-4"><summary class="font-display font-bold text-ink cursor-pointer">كل كم يجب تنظيف الأسنان عند الطبيب؟</summary><p class="mt-3 leading-8 text-sm">في الغالب كل ستة أشهر، وقد تنصحك الطبيبة بمدة أقصر أو أطول بحسب حالة اللثة.</p></details>
+      <details class="faq bg-porcelain rounded-2xl px-5 py-4"><summary class="font-display font-bold text-ink cursor-pointer">كم تكلفة العلاج؟</summary><p class="mt-3 leading-8 text-sm">تختلف الأسعار حسب الحالة والخدمة المطلوبة، ويمكنك الاستفسار عبر الواتساب أو في الاستشارة الأولى.</p></details>
+      <details class="faq bg-porcelain rounded-2xl px-5 py-4"><summary class="font-display font-bold text-ink cursor-pointer">أين تقع العيادة ومتى تعمل؟</summary><p class="mt-3 leading-8 text-sm">العيادة في شيراقة (الجزائر العاصمة)، وتجد العنوان والخريطة وأوقات العمل في قسم أوقات العمل والموقع.</p></details>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer class="bg-ink text-white/80 py-8">
@@ -329,6 +357,14 @@
     const i = el.querySelector('img'); lbImg.src = i.src; lbImg.alt = i.alt; lb.showModal();
   }));
   lb.addEventListener('click', e => { if (e.target === lb || e.target === lbImg) lb.close(); });
+
+  // ===== FAQPage JSON-LD (للبحث) =====
+  const ld = document.createElement('script'); ld.type = 'application/ld+json';
+  ld.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: [...document.querySelectorAll('.faq')].map(d => ({ '@type': 'Question',
+      name: d.querySelector('summary').textContent.trim(),
+      acceptedAnswer: { '@type': 'Answer', text: d.querySelector('p').textContent.trim() } })) });
+  document.head.appendChild(ld);
 
   // ===== الحجز عبر الواتساب =====
   document.getElementById('sendBtn').addEventListener('click', () => {
